@@ -121,6 +121,7 @@ main{
 
 .main-info .my-foto{
     position: absolute;
+    z-index: -1;
     top: 17%;
     right: 10%;
 }
