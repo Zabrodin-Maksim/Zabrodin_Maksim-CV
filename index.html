@@ -1,258 +1,479 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maksim Zabrodin — Full-Stack Software Developer</title>
+<meta name="description" content="Maksim Zabrodin — Full-Stack Software Developer. .NET Core, C#, React, SQL. Based in Hradec Králové, Czechia.">
+<link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icons/favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="icons/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="mz-root" data-lang="en" style="position:relative;background:#07070b;--bg:#07070b;--surface:#0f0f18;--surface2:#15151f;--text:#ECECF2;--muted:#8E8EA6;--border:rgba(255,255,255,.09);--accent:#C6FF3D;--accent2:#1FE0FF;min-height:100vh;font-family:'Manrope',sans-serif">
 
-    <link rel="stylesheet" href="css/styles.css">
+  <div id="mz-progress" style="position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:200;box-shadow:0 0 14px var(--accent)"></div>
 
-    <!-- Raleway -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <div id="mz-cursor" class="mz-hide-sm" style="position: fixed; top: 0; left: 0; width: 520px; height: 520px; border-radius: 50%; pointer-events: none; z-index: 1; transform: translate(-10%, -10%); background: radial-gradient(circle,color-mix(in srgb,var(--accent) 16%,transparent),transparent 62%); mix-blend-mode: screen; will-change: transform"></div>
 
-    <!-- Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <canvas id="mz-canvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none"></canvas>
 
-    <!-- Nunito -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-   
-    <link rel="icon" type="image/png" href="images/page_cv_icon.png">
+  <div style="position:fixed;right:16px;bottom:16px;z-index:160;display:flex;flex-direction:column;gap:10px;align-items:center;padding:12px 9px;background:rgba(15,15,24,.7);backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:40px">
+    <div class="mz-hide-sm" style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;color:var(--muted);writing-mode:vertical-rl;transform:rotate(180deg);margin-bottom:2px">THEME</div>
+    <button data-theme="neon" aria-label="Neon theme" style="width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.25);cursor:pointer;background:linear-gradient(135deg,#C6FF3D,#1FE0FF);transition:transform .2s" style-hover="transform:scale(1.18)"></button>
+    <button data-theme="editorial" aria-label="Editorial theme" style="width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.25);cursor:pointer;background:linear-gradient(135deg,#F5A623,#FF5E3A);transition:transform .2s" style-hover="transform:scale(1.18)"></button>
+    <button data-theme="playful" aria-label="Playful theme" style="width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.25);cursor:pointer;background:linear-gradient(135deg,#FF3D9A,#6E5BFF)" style-hover="transform:scale(1.18)"></button>
+  </div>
 
-    <title>Zabrodin Maksim CV</title>
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:150;display:flex;align-items:center;justify-content:space-between;padding:20px 40px;backdrop-filter:blur(10px);background:linear-gradient(180deg,rgba(7,7,11,.72),rgba(7,7,11,0))">
+    <a href="#top" style="display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.02em">
+      <span style="display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--accent);color:#07070b;font-weight:700">MZ</span>
+      <span>Maksim Zabrodin</span>
+    </a>
+    <div class="mz-hide-sm" style="display:flex;align-items:center;gap:30px;font-size:14px;font-weight:500;color:var(--muted);font-family:'Space Grotesk',sans-serif">
+      <a href="#about" data-en="About" data-cs="O mně" style="transition:color .2s" style-hover="color:var(--text)">About</a>
+      <a href="#stack" data-en="Stack" data-cs="Stack" style="transition:color .2s" style-hover="color:var(--text)">Stack</a>
+      <a href="#experience" data-en="Experience" data-cs="Zkušenosti" style="transition:color .2s" style-hover="color:var(--text)">Experience</a>
+      <a href="#work" data-en="Work" data-cs="Projekty" style="transition:color .2s" style-hover="color:var(--text)">Work</a>
+      <a href="#ai" data-en="AI" data-cs="AI" style="transition:color .2s" style-hover="color:var(--text)">AI</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <button id="mz-langBtn"  style="display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:30px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--text);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s" style-hover="border-color:var(--accent)">
+        <span style="color:var(--accent)">●</span><span id="mz-langLabel">CZ</span>
+      </button>
+      <a href="#contact" data-en="Contact" data-cs="Kontakt" class="mz-hide-sm" style="padding:9px 20px;border-radius:30px;background:var(--accent);color:#07070b;font-weight:600;font-size:14px;font-family:'Space Grotesk',sans-serif;transition:transform .2s">Contact</a>
+    </div>
+  </nav>
 
-    <!-- Swiper -->
-    <script src="libs/swiper/swiper-bundle.min.js" defer></script>
-    <link rel="stylesheet" href="libs/swiper/swiper-bundle.min.css">
+  <header id="top" style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:170px 40px 70px;min-height:100vh;display:flex;flex-direction:column;justify-content:center">
+    <div data-reveal="" style="display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:30px;border:1px solid var(--border);background:rgba(255,255,255,.03);width:max-content;margin-bottom:34px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">
+      <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:mzblink 1.8s infinite"></span>
+      <span data-en="Available for work · Hradec Králové, CZ" data-cs="Otevřen nabídkám · Hradec Králové, ČR">Available for work · Hradec Králové, CZ</span>
+    </div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(54px,9vw,128px);line-height:.92;letter-spacing:-.04em;margin-bottom:30px">
+      <span data-reveal="" data-scramble="" style="display:block">Maksim</span>
+      <span data-reveal="" data-scramble="" style="display:block;color:transparent;-webkit-text-stroke:1.5px var(--text);transition-delay:.08s">Zabrodin</span>
+    </h1>
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-bottom:26px;transition-delay:.12s">
+      <span style="font-family:'Space Grotesk',sans-serif;font-size:clamp(20px,2.6vw,30px);font-weight:500;color:var(--accent)" data-en="Full-Stack Software Developer" data-cs="Full-Stack vývojář">Full-Stack Software Developer</span>
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--muted)"></span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--muted)">.NET Core · C# · React · SQL</span>
+    </div>
+    <p data-reveal="" style="max-width:560px;font-size:clamp(16px,2vw,19px);line-height:1.65;color:var(--muted);transition-delay:.16s"
+      data-en="I build reliable full-stack products end to end — from .NET Core APIs to React front ends — and ship features to production. Currently at Quadient, where the front end is built on Bobril (a React-based framework), and I also automate parts of our workflow with custom AI tooling."
+      data-cs="Vyvíjím spolehlivé full-stack produkty od začátku do konce — od API v .NET Core po frontend v Reactu — a dodávám funkce do produkce. Aktuálně v Quadientu, kde je frontend postavený na frameworku Bobril (založeném na Reactu), a navíc automatizuji části našeho workflow pomocí vlastních AI nástrojů.">
+      I build reliable full-stack products end to end — from .NET Core APIs to React front ends — and ship features to production. Currently at Quadient, where the front end is built on Bobril (a React-based framework), and I also automate parts of our workflow with custom AI tooling.
+    </p>
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:16px;margin-top:42px;transition-delay:.2s">
+      <a href="#work" data-magnetic="" data-en="View selected work" data-cs="Vybrané projekty" style="display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:40px;background:var(--accent);color:#07070b;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;box-shadow:0 8px 40px color-mix(in srgb,var(--accent) 35%,transparent);transition:transform .15s">View selected work →</a>
+      <a href="https://github.com/Zabrodin-Maksim/My_money_APP" target="_blank" data-magnetic="" style="display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:40px;border:1px solid var(--border);background:rgba(255,255,255,.02);color:var(--text);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;transition:all .15s" style-hover="border-color:var(--accent)">GitHub ↗</a>
 
-    <!-- js -->
-    <script src="js/app.js" defer></script>
-
-  </head>
-  <body>
-    <!-- Nav -->
-    <section class="navigation">
-        <nav>
-            <ul>
-                <li><a href="#Info"><b>maksim</b></a></li>
-                <li><a href="#Education">education</a></li>
-                <li><a href="#Courses">courses</a></li>
-                <li><a href="#projects">projects</a></li>
-                <li>
-                    <div class="contact">
-                        <a href="https://github.com/Zabrodin-Maksim" target="_blank"><img src="images/mdi_github.svg" alt="github" width="25px"></a>
-                        <a href="https://www.linkedin.com/in/maksim-zabrodin/" target="_blank"><img src="images/mdi_linkedin.svg" alt="LinkedIn" width="25px"></a>
-                        <a href="mailto:zabrodin_maksim1@outlook.com" target="_blank"><img src="images/mdi_mail.svg" alt="mail" width="25px"></a>
-                    </div>
-                </li>
-            </ul>
-        </nav> 
-    </section>
-    
-    
-    
-    <!-- Main -->
-    <main>
-
-        <!-- Info -->
-        <section class="main-info">
-
-            <img class="back-light" src="images/Light_yel.png">
-            <img class="my-foto" src="images/my-foto-1.png">
-
-            <div class="main-text">
-                <b id="Info">Hi, I&rsquo;m Maksim</b>
-                <p class="text-description">
-                    Over the past <b>5 years</b> in the <b>IT field</b>, while 
-                    pursuing my <b>undergraduate studies </b>for the<b> past 3 years</b>, I 
-                    have acquired a wide range of knowledge 
-                    spanning areas such as software development, 
-                    front-end and back-end development, as 
-                    well as full-stack work. My work encompasses not only 
-                    coding but also effective collaboration with 
-                    various departments, contributing to the 
-                    successful achievement of project goals.
-                </p>
-            </div>
-
-            <a class="download-cv" href="Maksim Zabrodin CV Resume .pdf" target="_blank"><b>Download CV</b></a>
-            <a class="see-experiences" href="mailto:zabrodin_maksim1@outlook.com" target="_blank">Contact Me</a>
-        </section>
-
-        <!-- XP -->
-        <section class="xp">
-            <img class="back-light" src="images/Light_perp.png">
-
-            <div id="Education" class="xp-text">
-                <p>
-                    5 years of </br>
-                    <b>XP</b> </br>
-                    in popular IT domains including
-                </p>                
-            </div>
-            
-            <div class="swiper slider">
-
-                <div class="swiper-wrapper">
-
-                    <div class="swiper-slide slide">
-                        <div class="slide_context slide_C">
-                            <img class="C-logo" src="images/C_logo.png">
-                            <p>C, C#, WPF (Windows Presentation Foundation), .NET Framework</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide slide">
-                        <div class="slide_context slide_Java">
-                            <img class="Java-logo" src="images/java_logo.png">
-                            <p>Java, JavaFX, Kotlin</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide slide">
-                        <div class="slide_context slide_WebDel">
-                            <img class="WebDel-logo" src="images/web_2_logo.png">
-                            <p>HTML&CSS, JavaScript, React</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide slide">
-                        <div class="slide_context slide_SQL">
-                            <img class="SQL-logo" src="images/sql_logo.png">
-                            <p>SQL, SQLite</p>
-                        </div>
-                    </div>
-        
-                </div>
-        
-                <div class="slider-bottom">
-                    <div class="slider-pagination">
-                        <div class="swiper-pagination"></div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section class="education">
-            <b>education</b>
-            <p>September 2021 — Present</br>
-                <span class="highlight">University of Pardubice</span></br>
-                Faculty of Electrical Engineering and Information Technology
-            </p>
-        </section>
-
-        <!-- Courses -->
-        <section class="courses">
-            <img class="back-light" src="images/Light_blue.png">
-            <b id="Courses">courses</b>
-            <div class="items">
-                <ul>
-                    <li>
-                        <img><p>Database Programming with PL/SQL by Oracle</p>
-                    </li>
-
-                    <li>
-                        <img><p>Database programming with SQL by Oracle</p>
-                    </li>
-
-                    <li>
-                        <img><p>Java Programming Masterclass covering - Java 11 & Java 17 by Udemy</p>
-                    </li>
-
-                    <li>
-                        <img><p>Database design by Oracle</p>
-                    </li>
-
-                    <li>
-                        <img><p>Database foundations by Oracle</p>
-                    </li>
-
-                    <li>
-                        <img><p>Introduction to Hardware and Operating Systems, IBM</p>
-                    </li>
-
-                    <li>
-                        <img><p>Introduction to Cybersecurity Essentials, IBM</p>
-                    </li>
-
-                    <li>
-                        <img><p>CSS Essential Training</p>
-                    </li>
-
-                    <li>
-                        <img><p>Learning Java, LinkedIn Learning</p>
-                    </li>
-
-                    <li>
-                        <img><p>CSS Essential Training, LinkedIn Learning</p>
-                    </li>
-
-                    <li>
-                        <img><p>Introduction to C# with Unity, LinkedIn Learning</p>
-                    </li>
-
-                    <li>
-                        <img><p>Digital Citizenship and Safety Course, Google</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Project -->
-        <section class="project">
-            <h1 id="projects">projects</h1>
-
-            <div class="items">
-                
-                <div class="project-item-myMoney">
-                    <a href="https://github.com/Zabrodin-Maksim/My_money_APP" target="_blank">
-                        <img src="images/MyMoneyApp.png">
-
-                        <div class="text">
-                        </br>
-                            <b>My Money</b></br>
-                            <p>The "My Money" program is designed to track personal finances and manage the user's budget.</p>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="project-item-AutoService">
-                    <a href="https://github.com/Zabrodin-Maksim/Auto-Service-Application" target="_blank">
-                        <img src="images/AutoServise.jpg">
-
-                        <div class="text">
-                        </br>
-                            <b>Auto Service Application</b></br>
-                            <p>An application for managing an auto service business with an integrated Oracle database system, 
-                                providing a convenient interface for business management and data tracking.</p>
-                        </div>
-                    </a>
-                </div>
-
-                
-            </div>
-        </section>
-    </main>
-        
-    <footer>
-        <div>
-            <p>© 2024 by Maksim Zabrodin | <a href="mailto:zabrodin_maksim1@outlook.com">zabrodin_maksim1@outlook.com</a></p>
-            <p class="license"><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en" target="_blank">Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License</a></p>
+      <div id="mz-cvWrap" style="position:relative">
+        <button data-action="cv-toggle" data-magnetic="" data-en="Download CV ↓" data-cs="Stáhnout CV ↓" style="display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:40px;border:1px solid var(--accent);background:transparent;color:var(--accent);font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;cursor:pointer;transition:all .15s" style-hover="background:color-mix(in srgb,var(--accent) 12%,transparent)">Download CV ↓</button>
+        <div id="mz-cvMenu" style="display:none;position:absolute;top:calc(100% + 10px);left:0;flex-direction:column;gap:4px;padding:8px;min-width:190px;background:var(--surface2);border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.5);z-index:60">
+          <a href="assets/Maksim_Zabrodin_CV_EN.pdf" download="Maksim_Zabrodin_CV_EN.pdf" style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 14px;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--text);transition:background .15s" style-hover="background:rgba(255,255,255,.06)"><span data-en="English" data-cs="Angličtina">English</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">EN ↓</span></a>
+          <a href="assets/Maksim_Zabrodin_CV_CS.pdf" download="Maksim_Zabrodin_CV_CS.pdf" style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 14px;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;color:var(--text);transition:background .15s" style-hover="background:rgba(255,255,255,.06)"><span data-en="Czech" data-cs="Čeština">Czech</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">CZ ↓</span></a>
         </div>
-        <ul class="social">
-          <li>
-            <a href="https://github.com/Zabrodin-Maksim" target="_blank"><img src="images/mdi_github.svg" alt="GitHub" width="42px"></a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/maksim-zabrodin/" target="_blank"><img src="images/mdi_linkedin.svg" alt="LinkedIn" width="42px"></a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/_maksim_zabrodin_?igsh=MWZmN2o0aXE3d3FmNA%3D%3D&utm_source=qr" target="_blank"><img src="images/mdi_instagram.svg" alt="Instagram" width="42px"></a>
-          </li>
+      </div>
+    </div>
+
+    <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:48px;margin-top:74px;transition-delay:.26s">
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:46px;font-weight:700;line-height:1"><span data-count="4">0</span><span style="color:var(--accent)">+</span></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-top:6px" data-en="years coding" data-cs="let programování">years coding</div>
+      </div>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:46px;font-weight:700;line-height:1"><span data-count="3">0</span></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-top:6px" data-en="countries worked" data-cs="země zkušeností">countries worked</div>
+      </div>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:46px;font-weight:700;line-height:1"><span data-count="4">0</span></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-top:6px" data-en="languages spoken" data-cs="mluvené jazyky">languages spoken</div>
+      </div>
+    </div>
+
+    <div style="position:absolute;left:0;right:0;bottom:24px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)">
+      <div style="display:flex;width:max-content;animation:mzmarquee 26s linear infinite;font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:.18em;color:rgba(255,255,255,.16);text-transform:uppercase">
+        <span style="padding:0 26px">React</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">.NET Core</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">C#</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">Azure DevOps</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">SQL</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">TypeScript</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">AI Automation</span><span style="padding:0 26px;color:var(--accent)">●</span>
+        <span style="padding:0 26px">React</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">.NET Core</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">C#</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">Azure DevOps</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">SQL</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">TypeScript</span><span style="padding:0 26px;color:var(--accent)">●</span><span style="padding:0 26px">AI Automation</span><span style="padding:0 26px;color:var(--accent)">●</span>
+      </div>
+    </div>
+  </header>
+
+  <section style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 40px 50px">
+    <div data-reveal="" style="border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface);box-shadow:0 30px 80px rgba(0,0,0,.45)">
+      <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)">
+        <span style="width:11px;height:11px;border-radius:50%;background:var(--accent)"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:var(--accent2)"></span>
+        <span style="width:11px;height:11px;border-radius:50%;background:var(--muted)"></span>
+        <span style="margin-left:10px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">maksim@portfolio — ~/cv</span>
+      </div>
+      <div style="padding:24px 22px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.95;color:var(--text)">
+        <div><span style="color:var(--accent)">$</span> whoami</div>
+        <div style="color:var(--muted)">→ Maksim Zabrodin · <span data-en="Full-Stack Software Developer" data-cs="Full-Stack vývojář">Full-Stack Software Developer</span></div>
+        <div style="margin-top:10px"><span style="color:var(--accent)">$</span> cat stack.json</div>
+        <div style="color:var(--muted)">→ <span style="color:var(--accent2)">{</span> backend: <span style="color:var(--text)">".NET Core / C#"</span>, frontend: <span style="color:var(--text)">"React / TypeScript"</span>, data: <span style="color:var(--text)">"SQL"</span>, cloud: <span style="color:var(--text)">"Azure DevOps"</span> <span style="color:var(--accent2)">}</span></div>
+        <div style="margin-top:10px"><span style="color:var(--accent)">$</span> cat summary.txt</div>
+        <div style="color:var(--muted);max-width:800px"><span id="mz-type"
+          data-en="Full-stack developer shipping production features end to end — .NET Core APIs, a React front end, SQL underneath, delivered through Azure DevOps. At Quadient I work with Bobril (a React-based framework) and build custom AI tooling that automates repetitive team work."
+          data-cs="Full-stack vývojář, který dodává produkční funkce od začátku do konce — API v .NET Core, frontend v Reactu, pod tím SQL, nasazováno přes Azure DevOps. V Quadientu pracuji s frameworkem Bobril (založeným na Reactu) a stavím vlastní AI nástroje, které automatizují opakující se týmovou práci.">Full-stack developer shipping production features end to end — .NET Core APIs, a React front end, SQL underneath, delivered through Azure DevOps. At Quadient I work with Bobril (a React-based framework) and build custom AI tooling that automates repetitive team work.</span><span style="display:inline-block;width:8px;height:16px;background:var(--accent);margin-left:3px;vertical-align:-2px;box-shadow:0 0 8px var(--accent);animation:mzblink 1s steps(1) infinite"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:110px 40px">
+    <div data-reveal="" style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;color:var(--accent);margin-bottom:22px">01 / <span data-en="ABOUT" data-cs="O MNĚ">ABOUT</span></div>
+    <div class="mz-collapse" style="display:grid;grid-template-columns:300px 1.25fr 0.9fr;gap:48px;align-items:start">
+
+      <!-- ===== PHOTO 1 — my portrait. Drop the file at assets/portrait.jpg (vertical, ~3:4). ===== -->
+      <div data-reveal="" class="mz-hero-portrait mz-photo" style="width:100%;height:420px;border-radius:18px;background:var(--surface)"><span class="mz-photo-hint" data-en="Add photo → assets/portrait.jpg" data-cs="Přidej foto → assets/portrait.jpg">Add photo → assets/portrait.jpg</span><img class="mz-photo-img" src="assets/portrait.jpg" alt="Maksim Zabrodin" onload="this.classList.add('is-loaded')"></div>
+      <div>
+        <h2 data-reveal="" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:600;line-height:1.15;letter-spacing:-.02em;margin-bottom:28px" data-scramble="" 
+          data-en="A developer shaped by three countries and a habit of shipping." 
+          data-cs="Vývojář formovaný třemi zeměmi a zvykem dotahovat věci do konce.">
+          A developer shaped by three countries and a habit of shipping.
+        </h2>
+        <p data-reveal="" style="font-size:17px;line-height:1.75;color:var(--muted);margin-bottom:18px;transition-delay:.06s" 
+          data-en="My path runs from IT support and enterprise SQL databases in Ukraine, through an Erasmus exchange in Spain, to building production software at Quadient in the Czech Republic. Along the way I finished my Computer Science degree at the University of Pardubice." 
+          data-cs="Moje cesta vede od IT podpory a podnikových SQL databází na Ukrajině, přes výměnný pobyt Erasmus ve Španělsku, až po vývoj produkčního softwaru v Quadientu v České republice. Souběžně jsem dokončil studium informatiky na Univerzitě Pardubice.">
+          My path runs from IT support and enterprise SQL databases in Ukraine, through an Erasmus exchange in Spain, to building production software at Quadient in the Czech Republic. Along the way I finished my Computer Science degree at the University of Pardubice.
+        </p>
+        <p data-reveal="" style="font-size:17px;line-height:1.75;color:var(--muted);transition-delay:.1s"
+          data-en="I like owning the whole stack: designing and building .NET Core services, writing React front ends, modeling the database underneath, and shipping through CI/CD. Increasingly, I also lean on AI tooling to remove the repetitive parts."
+          data-cs="Baví mě mít pod kontrolou celý stack: navrhovat a stavět služby v .NET Core, psát frontend v Reactu, modelovat databázi pod tím a nasazovat přes CI/CD. Čím dál víc si k tomu beru i AI nástroje, které odstraňují opakující se práci.">
+          I like owning the whole stack: designing and building .NET Core services, writing React front ends, modeling the database underneath, and shipping through CI/CD. Increasingly, I also lean on AI tooling to remove the repetitive parts.
+        </p>
+      </div>
+      <div data-reveal="" style="transition-delay:.12s;display:flex;flex-direction:column;gap:1px;border:1px solid var(--border);border-radius:18px;overflow:hidden;background:var(--border)">
+        <div style="background:var(--surface);padding:20px 22px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:6px" data-en="BASED IN" data-cs="LOKACE">BASED IN</div>
+          <div style="font-size:16px;font-weight:600">Hradec Králové, Czechia</div>
+        </div>
+        <div style="background:var(--surface);padding:20px 22px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:6px" data-en="LANGUAGES" data-cs="JAZYKY">LANGUAGES</div>
+          <div style="font-size:16px;font-weight:600" data-en="English · Czech · Russian · Ukrainian" data-cs="Angličtina · Čeština · Ruština · Ukrajinština">English · Czech · Russian · Ukrainian</div>
+        </div>
+        <div style="background:var(--surface);padding:20px 22px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:6px" data-en="FOCUS" data-cs="ZAMĚŘENÍ">FOCUS</div>
+          <div style="font-size:16px;font-weight:600" data-en="Full-stack web · Cloud · AI workflows" data-cs="Full-stack web · Cloud · AI procesy">Full-stack web · Cloud · AI workflows</div>
+        </div>
+        <div style="background:var(--surface);padding:20px 22px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);margin-bottom:6px" data-en="CURRENTLY" data-cs="NYNÍ">CURRENTLY</div>
+          <div style="font-size:16px;font-weight:600;color:var(--accent)">@ Quadient</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:90px 40px">
+    <div data-reveal="" style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;color:var(--accent);margin-bottom:22px">02 / <span data-en="STACK" data-cs="STACK">STACK</span></div>
+    <h2 data-reveal="" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:600;letter-spacing:-.02em;margin-bottom:46px" data-scramble="" data-en="Tools I reach for" data-cs="Nástroje, které používám">Tools I reach for</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px">
+      <div data-reveal="" data-tilt="" style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;transition:border-color .3s">
+        <div style="font-size:24px;margin-bottom:16px">⚙️</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin-bottom:14px">Backend</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">.NET Core</span>
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">C#</span>
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">REST APIs</span>
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">SQL</span>
+        </div>
+      </div>
+      <div data-reveal="" data-tilt="" style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;transition:border-color .3s;transition-delay:.05s">
+        <div style="font-size:24px;margin-bottom:16px">⚛️</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin-bottom:14px">Frontend</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">React</span>
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">TypeScript</span>
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">JavaScript</span>
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">HTML / CSS</span>
+        </div>
+      </div>
+      <div data-reveal="" data-tilt="" style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px;transition:border-color .3s;transition-delay:.1s">
+        <div style="font-size:24px;margin-bottom:16px">☁️</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin-bottom:14px">DevOps &amp; Cloud</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">Azure DevOps</span>
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">Git</span>
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">CI / CD</span>
+        </div>
+      </div>
+      <div data-reveal="" data-tilt="" style="background:linear-gradient(150deg,color-mix(in srgb,var(--accent) 10%,var(--surface)),var(--surface));border:1px solid color-mix(in srgb,var(--accent) 30%,var(--border));border-radius:18px;padding:28px;transition:border-color .3s;transition-delay:.15s">
+        <div style="font-size:24px;margin-bottom:16px">✦</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin-bottom:14px;color:var(--accent)">AI &amp; Automation</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">LLM tooling</span>
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">Skills / scripts</span>
+          <span style="padding:6px 12px;border-radius:8px;background:rgba(255,255,255,.04);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">Workflow automation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:90px 40px">
+    <div data-reveal="" style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;color:var(--accent);margin-bottom:22px">03 / <span data-en="EXPERIENCE" data-cs="ZKUŠENOSTI">EXPERIENCE</span></div>
+    <h2 data-reveal="" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:600;letter-spacing:-.02em;margin-bottom:50px" data-scramble="" data-en="Where I've built things" data-cs="Kde jsem stavěl produkty">Where I've built things</h2>
+
+    <div id="mz-timeline" style="position:relative;padding-left:34px">
+      <div style="position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--border)"></div>
+      <div id="mz-timelineFill" style="position:absolute;left:7px;top:6px;width:2px;height:0%;background:linear-gradient(180deg,var(--accent),var(--accent2));box-shadow:0 0 12px var(--accent)"></div>
+
+      <div data-reveal="" style="position:relative;margin-bottom:46px">
+        <div style="position:absolute;left:-34px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 12px var(--accent)"></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:8px">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:23px;font-weight:600">Software Developer</span>
+          <span style="color:var(--accent);font-weight:600">Quadient</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">Mar 2025 — Present</span>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:14px">Hradec Králové, Czechia · On-site · Full-time</div>
+        <p style="font-size:16px;line-height:1.7;color:var(--muted);max-width:680px;margin-bottom:14px"
+          data-en="Full-stack development on enterprise-scale SaaS products in an international team."
+          data-cs="Full-stack vývoj podnikových SaaS produktů v mezinárodním týmu.">
+          Full-stack development on enterprise-scale SaaS products in an international team.
+        </p>
+        <ul style="margin:0;padding-left:20px;max-width:680px;display:flex;flex-direction:column;gap:9px;font-size:15px;line-height:1.6;color:var(--muted)">
+          <li data-en="Design and build back-end services and REST APIs in C# / .NET Core (ASP.NET Core)." data-cs="Návrh a vývoj backendových služeb a REST API v C# / .NET Core (ASP.NET Core).">Design and build back-end services and REST APIs in C# / .NET Core (ASP.NET Core).</li>
+          <li data-en="Develop front-end features with Bobril (a React-based framework) in TypeScript." data-cs="Vývoj frontendových funkcí ve frameworku Bobril (založeném na Reactu) v TypeScriptu.">Develop front-end features with Bobril (a React-based framework) in TypeScript.</li>
+          <li data-en="Ship through Azure DevOps CI/CD pipelines and containerize services with Docker." data-cs="Nasazování přes CI/CD pipeline v Azure DevOps a kontejnerizace služeb v Dockeru.">Ship through Azure DevOps CI/CD pipelines and containerize services with Docker.</li>
+          <li data-en="Investigate and fix production issues using Grafana log analysis." data-cs="Vyšetřování a oprava produkčních chyb pomocí analýzy logů v Grafaně.">Investigate and fix production issues using Grafana log analysis.</li>
+          <li data-en="Ensure quality with unit and integration tests and peer code reviews." data-cs="Zajištění kvality unit a integračními testy a code review.">Ensure quality with unit and integration tests and peer code reviews.</li>
+          <li data-en="Build custom AI tooling that automates recurring team workflows." data-cs="Tvorba vlastních AI nástrojů automatizujících opakující se týmové workflow.">Build custom AI tooling that automates recurring team workflows.</li>
         </ul>
-    </footer>
-  </body>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">C#</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">.NET Core</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">ASP.NET Core</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">Bobril</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">Azure DevOps</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">Docker</span>
+        </div>
+      </div>
+
+      <div data-reveal="" style="position:relative;margin-bottom:46px">
+        <div style="position:absolute;left:-34px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)"></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:8px">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:23px;font-weight:600" data-en="Erasmus Exchange Program" data-cs="Program výměny Erasmus">Erasmus Exchange Program</span>
+          <span style="color:var(--accent);font-weight:600">Universidad de Oviedo</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">Feb 2024 — Jul 2024</span>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:14px">Oviedo, Asturias, Spain · On-site</div>
+        <p style="font-size:16px;line-height:1.7;color:var(--muted);max-width:680px" 
+          data-en="An international semester that sharpened my English, intercultural communication and adaptability — becoming more flexible, independent and confident working in multinational teams." 
+          data-cs="Mezinárodní semestr, který posílil moji angličtinu, mezikulturní komunikaci a adaptabilitu — stal jsem se flexibilnějším, samostatnějším a jistějším v práci v mezinárodních týmech.">
+          An international semester that sharpened my English, intercultural communication and adaptability — becoming more flexible, independent and confident working in multinational teams.
+        </p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">Communication</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">English</span>
+        </div>
+      </div>
+
+      <div data-reveal="" style="position:relative">
+        <div style="position:absolute;left:-34px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--muted)"></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;margin-bottom:8px">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:23px;font-weight:600">IT Support Specialist</span>
+          <span style="color:var(--accent);font-weight:600">Variant Ukraine</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">Apr 2021 — Aug 2023</span>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:14px">Dnipro, Ukraine · Remote · Part-time</div>
+        <p style="font-size:16px;line-height:1.7;color:var(--muted);max-width:680px"
+          data-en="Provided SQL database support: writing and optimizing queries, maintaining data organization, and assisting with data-related requests."
+          data-cs="Podpora SQL databází: psaní a optimalizace dotazů, údržba organizace dat a pomoc s požadavky souvisejícími s daty.">
+          Provided SQL database support: writing and optimizing queries, maintaining data organization, and assisting with data-related requests.
+        </p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">SQL</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">Databases</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:90px 40px">
+    <div data-reveal="" style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;color:var(--accent);margin-bottom:22px">04 / <span data-en="SELECTED WORK" data-cs="VYBRANÉ PROJEKTY">SELECTED WORK</span></div>
+    <h2 data-reveal="" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:600;letter-spacing:-.02em;margin-bottom:46px" data-scramble="" 
+      data-en="Things I've shipped" 
+      data-cs="Co jsem vytvořil">
+      Things I've shipped
+    </h2>
+
+    <a href="https://github.com/Zabrodin-Maksim/My_money_APP" target="_blank" data-reveal="" data-tilt="" style="display:block;position:relative;overflow:hidden;background:linear-gradient(150deg,color-mix(in srgb,var(--accent) 8%,var(--surface)),var(--surface));border:1px solid var(--border);border-radius:24px;padding:42px;margin-bottom:18px;transition:border-color .3s" style-hover="border-color:var(--accent)">
+      <div style="position:absolute;right:-40px;top:-40px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%);animation:mzfloat 6s ease-in-out infinite"></div>
+      <div class="mz-collapse" style="position:relative;display:grid;grid-template-columns:1fr 0.82fr;gap:38px;align-items:center">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent)" data-en="FEATURED" data-cs="VYBRANÉ">FEATURED</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)" data-en="· Full-stack · Multi-user" data-cs="· Full-stack · Víceuživatelská">· Full-stack · Multi-user</span>
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4vw,52px);font-weight:700;letter-spacing:-.03em;margin-bottom:16px">My Money</h3>
+          <p style="font-size:17px;line-height:1.7;color:var(--muted);margin-bottom:26px"
+            data-en="A multi-user desktop application for personal and household finance management. Households with Admin / Partner / Child roles, role-based access enforced in both the UI and the service layer, and a rule-based analytics engine that turns spending data into explainable insights and a Financial Health Score."
+            data-cs="Víceuživatelská desktopová aplikace pro správu osobních a rodinných financí. Household model s rolemi Admin / Partner / Child, řízení přístupu vynucené jak v UI, tak v servisní vrstvě, a pravidlový analytický engine, který mění data o výdajích na vysvětlitelné závěry a Financial Health Score.">
+            A multi-user desktop application for personal and household finance management. Households with Admin / Partner / Child roles, role-based access enforced in both the UI and the service layer, and a rule-based analytics engine that turns spending data into explainable insights and a Financial Health Score.
+          </p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px">
+            <span style="padding:6px 13px;border-radius:8px;background:rgba(255,255,255,.05);font-family:'JetBrains Mono',monospace;font-size:12px">C#</span>
+            <span style="padding:6px 13px;border-radius:8px;background:rgba(255,255,255,.05);font-family:'JetBrains Mono',monospace;font-size:12px">WPF</span>
+            <span style="padding:6px 13px;border-radius:8px;background:rgba(255,255,255,.05);font-family:'JetBrains Mono',monospace;font-size:12px">MVVM</span>
+            <span style="padding:6px 13px;border-radius:8px;background:rgba(255,255,255,.05);font-family:'JetBrains Mono',monospace;font-size:12px">SQLite</span>
+          </div>
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--accent)">View on GitHub ↗</span>
+        </div>
+        <img src="assets/mymoney-dashboard.png" alt="My Money dashboard" style="display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.35)">
+      </div>
+    </a>
+
+    <div class="mz-collapse" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div data-reveal="" data-tilt="" style="background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:34px;transition:border-color .3s" style-hover="border-color:var(--accent)">
+
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent)" data-en="IN PROGRESS" data-cs="VE VÝVOJI">IN PROGRESS</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)" data-en="· Backend · Flagship" data-cs="· Backend · Vlajkový projekt">· Backend · Flagship</span>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;margin-bottom:14px" data-en="Enterprise AI Knowledge Platform" data-cs="Enterprise AI Knowledge Platform">Enterprise AI Knowledge Platform</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin-bottom:20px"
+          data-en="A backend-focused platform where employees query internal documents and get answers scoped to their access rights. Built to demonstrate layered architecture, authentication with role-based access control, audit logging and automated tests — with an LLM handling the retrieval layer. Currently in active development."
+          data-cs="Backendová platforma, kde zaměstnanci pokládají dotazy nad interními dokumenty a dostávají odpovědi omezené jejich přístupovými právy. Navržena tak, aby demonstrovala vrstvenou architekturu, autentizaci s řízením přístupu podle rolí, audit log a automatizované testy — s LLM ve vrstvě vyhledávání. Aktuálně ve vývoji.">
+          A backend-focused platform where employees query internal documents and get answers scoped to their access rights. Built to demonstrate layered architecture, authentication with role-based access control, audit logging and automated tests — with an LLM handling the retrieval layer. Currently in active development.
+        </p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">C#</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">ASP.NET Core</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">PostgreSQL</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">RBAC</span>
+        </div>
+      </div>
+      <div data-reveal="" data-tilt="" style="background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:34px;transition:border-color .3s;transition-delay:.05s" style-hover="border-color:var(--accent)">
+
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent)" data-en="PROFESSIONAL" data-cs="PROFESIONÁLNÍ">PROFESSIONAL</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)" data-en="· Enterprise SaaS" data-cs="· Enterprise SaaS">· Enterprise SaaS</span>
+        </div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;margin-bottom:14px" data-en="Quadient Impress" data-cs="Quadient Impress">Quadient Impress</h3>
+        <p style="font-size:15px;line-height:1.7;color:var(--muted);margin-bottom:20px"
+          data-en="Production feature work on Quadient Impress, a multi-channel customer communications platform for automating and delivering business documents at scale. Full-stack contributions across a .NET Core back end and a front end built with Bobril (a custom React-based framework), shipped through Azure DevOps CI/CD within an international engineering team."
+          data-cs="Vývoj produkčních funkcí platformy Quadient Impress — multikanálové platformy pro zákaznickou komunikaci, která automatizuje a doručuje firemní dokumenty ve velkém měřítku. Full-stack práce na backendu v .NET Core a frontendu postaveném na frameworku Bobril (založeném na Reactu), nasazováno přes Azure DevOps CI/CD v mezinárodním inženýrském týmu.">
+          Production feature work on Quadient Impress, a multi-channel customer communications platform for automating and delivering business documents at scale. Full-stack contributions across a .NET Core back end and a front end built with Bobril (a custom React-based framework), shipped through Azure DevOps CI/CD within an international engineering team.
+        </p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">C#</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">.NET Core</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">Bobril</span>
+          <span style="padding:5px 11px;border-radius:7px;border:1px solid var(--border);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)">Azure DevOps</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai" style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:90px 40px">
+    <div data-reveal="" style="position:relative;overflow:hidden;border:1px solid color-mix(in srgb,var(--accent) 26%,var(--border));border-radius:28px;padding:clamp(34px,6vw,68px);background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 7%,var(--surface)),var(--bg))">
+      <div style="position:absolute;left:-60px;bottom:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent2) 16%,transparent),transparent 70%)"></div>
+      <div style="position:relative">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;color:var(--accent);margin-bottom:22px">05 / <span data-en="AI WORKFLOW" data-cs="AI PŘÍSTUP">AI WORKFLOW</span></div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,4.4vw,52px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin-bottom:24px;max-width:760px" data-scramble="" 
+          data-en="AI isn't a buzzword in my workflow — it's part of the toolchain." 
+          data-cs="AI u mě není buzzword — je součástí mého nástrojového vybavení.">
+          AI isn't a buzzword in my workflow — it's part of the toolchain.
+        </h2>
+        <p style="max-width:640px;font-size:17px;line-height:1.75;color:var(--muted);margin-bottom:40px" 
+          data-en="I actively integrate AI into how I build — writing custom skills, automating repetitive work, and using LLMs to move faster without cutting corners on quality." 
+          data-cs="Aktivně zapojuji AI do vývoje — píšu vlastní skilly, automatizuji rutinu a využívám LLM, abych se pohyboval rychleji bez ztráty kvality.">
+          I actively integrate AI into how I build — writing custom skills, automating repetitive work, and using LLMs to move faster without cutting corners on quality.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+          <div style="padding:24px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid var(--border)">
+            <div style="font-size:22px;margin-bottom:12px">✍️</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;margin-bottom:8px" data-en="Writing skills" data-cs="Psaní skillů">Writing skills</div>
+            <div style="font-size:14px;line-height:1.6;color:var(--muted)" 
+              data-en="Custom AI skills tailored to real, repeating tasks." 
+              data-cs="Vlastní AI skilly na míru reálným, opakujícím se úkolům.">
+              Custom AI skills tailored to real, repeating tasks.
+            </div>
+          </div>
+          <div style="padding:24px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid var(--border)">
+            <div style="font-size:22px;margin-bottom:12px">⚡</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;margin-bottom:8px" data-en="Automation" data-cs="Automatizace">Automation</div>
+            <div style="font-size:14px;line-height:1.6;color:var(--muted)" 
+              data-en="Automating workflows so the team focuses on real problems." 
+              data-cs="Automatizuji procesy, aby se tým soustředil na skutečné problémy.">
+              Automating workflows so the team focuses on real problems.
+            </div>
+          </div>
+          <div style="padding:24px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid var(--border)">
+            <div style="font-size:22px;margin-bottom:12px">🤝</div>
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;margin-bottom:8px" data-en="AI-assisted dev" data-cs="Vývoj s podporou AI">AI-assisted dev</div>
+            <div style="font-size:14px;line-height:1.6;color:var(--muted)" 
+              data-en="LLMs as a daily pair-programmer across the stack." 
+              data-cs="LLM jako každodenní pair-programmer napříč celým stackem.">
+              LLMs as a daily pair-programmer across the stack.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:90px 40px">
+    <div data-reveal="" style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;color:var(--accent);margin-bottom:22px">06 / <span data-en="EDUCATION" data-cs="VZDĚLÁNÍ">EDUCATION</span></div>
+    <div class="mz-collapse" style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div data-reveal="" style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:32px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:14px">2021 — May 2026</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin-bottom:8px">University of Pardubice</h3>
+        <p style="font-size:15px;color:var(--muted);line-height:1.6" data-en="Bachelor's degree — Computer and Information Sciences" data-cs="Bakalářský titul — Počítačové a informační vědy">Bachelor's degree — Computer and Information Sciences</p>
+      </div>
+      <div data-reveal="" style="background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:32px;transition-delay:.05s">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:14px">Feb 2024 — Jul 2024</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin-bottom:8px">Universidad de Oviedo</h3>
+        <p style="font-size:15px;color:var(--muted);line-height:1.6" data-en="Erasmus Exchange Program · Spain" data-cs="Program výměny Erasmus · Španělsko">Erasmus Exchange Program · Spain</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:90px 40px 60px">
+    <div data-reveal="" style="font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.16em;color:var(--accent);margin-bottom:22px">07 / <span data-en="CONTACT" data-cs="KONTAKT">CONTACT</span></div>
+    <div class="mz-collapse" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start">
+      <div>
+        <h2 data-reveal="" style="font-family:'Space Grotesk',sans-serif;font-size:clamp(34px,5vw,64px);font-weight:700;letter-spacing:-.03em;line-height:1.02;margin-bottom:26px" data-scramble="" data-en="Let's build something." data-cs="Pojďme něco vytvořit.">Let's build something.</h2>
+        <p data-reveal="" style="font-size:17px;line-height:1.7;color:var(--muted);margin-bottom:34px;max-width:420px;transition-delay:.06s" 
+          data-en="Open to full-stack roles and collaborations. The fastest way to reach me is below." 
+          data-cs="Otevřen full-stack pozicím a spolupráci. Nejrychlejší způsob, jak mě kontaktovat, je níže.">
+          Open to full-stack roles and collaborations. The fastest way to reach me is below.
+        </p>
+        <div data-reveal="" style="display:flex;flex-direction:column;gap:12px;transition-delay:.1s">
+          <a href="mailto:zabrodin_maksim1@outlook.com" data-magnetic="" style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 22px;border-radius:14px;border:1px solid var(--border);background:var(--surface);transition:border-color .2s" style-hover="border-color:var(--accent)">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600">Email</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);user-select:all">zabrodin_maksim1@outlook.com</span>
+          </a>
+          <a href="https://www.linkedin.com/in/maksim-zabrodin/" target="_blank" data-magnetic="" style="display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-radius:14px;border:1px solid var(--border);background:var(--surface);transition:border-color .2s" style-hover="border-color:var(--accent)">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600">LinkedIn</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">/in/maksim-zabrodin ↗</span>
+          </a>
+          <a href="https://github.com/Zabrodin-Maksim" target="_blank" data-magnetic="" style="display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-radius:14px;border:1px solid var(--border);background:var(--surface);transition:border-color .2s" style-hover="border-color:var(--accent)">
+            <span style="font-family:'Space Grotesk',sans-serif;font-weight:600">GitHub</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">/Zabrodin-Maksim ↗</span>
+          </a>
+        </div>
+      </div>
+      <form id="mz-form"   data-reveal="" style="display:flex;flex-direction:column;gap:14px;transition-delay:.12s">
+        <input name="name" data-en-ph="Your name" data-cs-ph="Vaše jméno" placeholder="Your name" required="" style="padding:16px 18px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:15px;outline:none;transition:border-color .2s" style-focus="border-color:var(--accent)">
+        <input name="email" type="email" data-en-ph="Email" data-cs-ph="Email" placeholder="Email" required="" style="padding:16px 18px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:15px;outline:none;transition:border-color .2s" style-focus="border-color:var(--accent)">
+        <textarea name="message" data-en-ph="Tell me about the project…" data-cs-ph="Napište mi o projektu…" placeholder="Tell me about the project…" rows="5" required="" style="padding:16px 18px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:15px;outline:none;resize:vertical;transition:border-color .2s" style-focus="border-color:var(--accent)"></textarea>
+        <button type="submit" id="mz-submit" disabled="" data-en="Send message →" data-cs="Odeslat →" style="padding:17px;border-radius:12px;border:none;background:var(--accent);color:#07070b;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;cursor:not-allowed;opacity:.45;transition:transform .15s,opacity .2s" style-hover="transform:translateY(-2px)">Send message →</button>
+      </form>
+    </div>
+
+    <div style="margin-top:90px;padding-top:30px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)">
+      <span>© 2026 Maksim Zabrodin</span>
+      <span data-en="Designed & coded end to end" data-cs="Navrženo a naprogramováno mnou">Designed & coded end to end</span>
+    </div>
+  </section>
+
+</div>
+<script src="script.js"></script>
+</body>
 </html>
